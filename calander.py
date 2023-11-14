@@ -2,7 +2,6 @@
 import math
 import argparse
 
-
 def checkLeapYear(year):
     """Checks if given year is a leap year
     Three rules to determine if year is a leap year
