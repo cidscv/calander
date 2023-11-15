@@ -1,5 +1,3 @@
-/*Owen Reid Calander program he wrote at 4am*/
-
 #include <iostream>
 #include <string>
 #include <cstdlib>
