@@ -46,11 +46,11 @@ def checkFirstDayOfMonth(month, year):
     # Assigns century (first 2 digits) and yr (last 2 digits) for calculation
     century = str(year)[0] + str(year)[1]
     yr = str(year)[2] + str(year)[3]
-    
+
     # Subtracts a year from 'yr' if the month is Jan or Feb due to leap year rules
     if month == 'JANUARY' or month == 'FEBUARY':
         yr = int(yr) - 1
-    
+
     calc_day = (1 + math.floor((2.6 * int(month_num)) - 0.2) - (2 * int(century)) + int(yr) + math.floor(int(yr)/4) + math.floor(int(century)/4)) % 7
 
     return calc_day
@@ -58,7 +58,8 @@ def checkFirstDayOfMonth(month, year):
 def daysInMonth(month, year):
     """Based on given month, returns how many days are in each month
     7 Months have 31 days, 4 Months have 30 days (specified), and Feburary has 29 days if the year is a leap year, and 28 if it is not
-    Returns the amount of days that exist in the given month for the given year"""
+    Returns the amount of days that exist in the given month for the given year
+    """
     if month == 'APRIL' or month == 'JUNE' or month == 'SEPTEMBER' or month == 'NOVEMBER':
         return 30
     elif month == 'FEBUARY':
@@ -74,7 +75,8 @@ def printCalander(month, year):
     Uses first day value to determine where to start on the calander (how many spaces to include)
     Also uses first day value as a counter to determine when it should move to the next line (new week)
     Gap between dates gets smaller when dates reach 2 digits
-    Returns the calander string"""
+    Returns the calander string
+    """
 
     # Validates data types, error message and exit if year is not given as an integer
     try:
@@ -82,12 +84,12 @@ def printCalander(month, year):
     except(ValueError):
         print("Not valid year! (e.g. June 1456, March 2000, August 2023, September 3050)")
         exit()
-    
+
     # Checks that year given is a positive integer (i.e. value 0 or higher)
     if int(year) < 0:
         print("Year must be positive integer!")
         exit()
-    
+
     # Converts every letter in month to uppercase to account for different variations (i.e. One person may write 'march' and another may write 'March')
     month = month.upper()
     # Standardizes the spacing between dates
@@ -119,7 +121,7 @@ def printCalander(month, year):
         if first_day > 6:
             first_day = 0
             calander += str('\n')
-        
+
         # Our check if the digits go to 2 (i.e. 10 or above) since we'll need to change the spacing
         if day < 10:
             calander += str(f'{day}  ')
@@ -143,7 +145,7 @@ def main(month, year):
 
 def unitTests():
 
-    printCalander()  
+    printCalander()
     printCalander('june', 2023)
     printCalander('jUnE', 2023)
     printCalander('JUNE', 2023)
